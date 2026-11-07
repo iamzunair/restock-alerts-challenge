@@ -28,7 +28,7 @@ Without Docker (Node 24+): `node --env-file=.env server.mjs`. Test with `npm tes
 | EMAIL_FROM | Optional sender; default Restock <onboarding@resend.dev> |
 | STORE_URL | Optional real storefront URL for the email CTA |
 
-Use HTTPS at the reverse proxy when publicly hosted. No credentials are shipped in this repository. Only synthetic customers and the challenge sandbox were used during development.
+Use HTTPS at the reverse proxy when publicly hosted. No live credentials are shipped in this repository. Only synthetic customers and the challenge sandbox were used during development.
 
 ## Routes
 
@@ -66,3 +66,7 @@ The image build and all 15 tests passed in GitHub Actions. CI also includes a co
 ## AI and timing
 
 AI tool: OpenAI Codex (ChatGPT Work), used for implementation, test design, UI and documentation. No subcontractors or delegated agents. Timing and final live integration results are recorded in `SUBMISSION.md` at handoff.
+
+## Client admin access
+
+See [SECURITY.md](SECURITY.md) for safe credential setup and reviewer access. The hosted demo uses username `admin`; obtain its application-specific password privately from the applicant. The password is deliberately not published in this repository. For your own Docker instance, set your own `ADMIN_PASSWORD` in an untracked `.env` file or hosting secret manager.
