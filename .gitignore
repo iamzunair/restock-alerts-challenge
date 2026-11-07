@@ -5,3 +5,9 @@ data/
 node_modules/
 dist/
 *.sqlite*
+*.pem
+*.key
+credentials*.json
+secrets*.json
+*Private*Access*
+private-handoff/
