@@ -1,8 +1,14 @@
 .git
 .env*
-!\.env.example
+!.env.example
 data
 node_modules
 tests
 dist
 .openai
+*.pem
+*.key
+credentials*.json
+secrets*.json
+*Private*Access*
+private-handoff
