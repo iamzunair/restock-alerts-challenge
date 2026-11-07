@@ -10,3 +10,10 @@ jobs:
           node-version: '24'
       - run: npm test
       - run: docker build -t restock-alerts .
+      - name: Smoke-test Docker on a custom PORT
+        run: |
+          docker run -d --name restock-ci -p 8080:8080 -e PORT=8080 -e STOCK_API_URL=https://stock.invalid -e STOCK_API_KEY=test -e RESEND_BASE_URL=https://mail.invalid -e RESEND_API_KEY=test -e WEBHOOK_SECRET=test restock-alerts
+          curl --retry 10 --retry-delay 1 --retry-connrefused --fail http://localhost:8080/healthz
+          docker restart restock-ci
+          curl --retry 10 --retry-delay 1 --retry-connrefused --fail http://localhost:8080/healthz
+          docker rm -f restock-ci

@@ -61,7 +61,7 @@ The live preview is connected to the challenge sandbox, not a production email p
 
 `npm test` covers 15 cases: concurrent signup normalization; invalid inputs and admin/webhook auth; false stock alerts; concurrent duplicate webhooks and workers; email 500 retry; lost success response; stock network outage; partial recipient failure; conflicting event IDs; recovery from a persisted expired lease; a second restock cycle; expired idempotency window review; HTML escaping; iframe policy; and the actual HTTP server through retries and a process restart.
 
-Docker is not installed in the authoring environment, so the image build was not executed here. GitHub Actions configuration is included to build the image and run the test suite when pushed. Runtime verification uses the same Node 24 server entrypoint as Docker.
+The image build and all 15 tests passed in GitHub Actions. CI also includes a container smoke test on a custom PORT and a container restart. Runtime integration tests exercise the same Node 24 entrypoint used by Docker.
 
 ## AI and timing
 
